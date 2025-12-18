@@ -14,9 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      INPUT_STRING: ${{ inputs.input-string }} 
     steps:
       - name: Tag Testrunner Image
-        if: ${{ inputs.input-string == true }}
+        if: ${{ env.INPUT_STRING != '' }}
         shell: bash
         run: |
           echo "Running test with input: ${{ inputs.input-string }}"
