@@ -1,0 +1,22 @@
+name: Test Inner String Input
+
+on:
+  workflow_call:
+    inputs:
+      input-string:
+        type: string
+        default: default-value
+        required: true
+        description: |
+          input-string to test if-condition in step-level
+jobs:
+  test-input-handling:
+    runs-on: ubuntu:latest
+    permissions:
+      contents: read
+    steps:
+      - name: Tag Testrunner Image
+        if: ${{ inputs.input-string != '' }}
+        shell: bash
+        run: |
+          echo "Running test with input: ${{ inputs.input-string }}"
