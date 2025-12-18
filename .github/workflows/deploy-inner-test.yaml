@@ -18,10 +18,18 @@ jobs:
       INPUT_STRING: ${{ inputs.input-string }} 
     steps:
       - name: Tag Testrunner Image
-        if: env.INPUT_STRING != ''
+        if: startsWith(inputs.input-string, '') && inputs.input-string != ''
         shell: bash
         run: |
           if [ -z "$INPUT_STRING" ]; then
+            echo "INPUT_STRING is empty"
+          else
+            echo "INPUT_STRING is not empty"
+          fi
+          
+          if [ -z "$INPUT_STRING" ]; then
             echo "input variable $INPUT_STRING is not empty"
           fi
+          
           echo "Running test with input: ${{ inputs.input-string }}"
+          echo "Running test with input: $INPUT_STRING"
