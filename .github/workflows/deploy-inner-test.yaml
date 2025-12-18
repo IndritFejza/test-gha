@@ -11,7 +11,7 @@ on:
           input-string to test if-condition in step-level
 jobs:
   test-input-handling:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
