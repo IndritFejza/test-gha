@@ -14,6 +14,6 @@ jobs:
   run-job-with-input:
     uses: IndritFejza/test-gha/.github/workflows/deploy-inner-test.yaml@main
     with:
-      input-string: ${{inputs.input-string}}
+      input-string: ${{ github.event.inputs.input-string }}
     permissions:
       contents: read
