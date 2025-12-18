@@ -1,4 +1,4 @@
-name: Test Empty String Input
+name: Test Outer Empty String Input
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   run-job-with-input:
-    uses: IndritFejza/test-gha/.github/workflows/deploy-inner-test.yaml@master
+    uses: IndritFejza/test-gha/.github/workflows/deploy-inner-test.yaml@main
     with:
       input-string: ${{inputs.input-string}}
     permissions:
