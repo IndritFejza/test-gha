@@ -1,0 +1,19 @@
+name: Test Empty String Input
+
+on:
+  workflow_dispatch:
+    inputs:
+      input-string:
+        type: string
+        default: default-value
+        required: true
+        description: |
+          input-string to test if-condition in step-level
+
+jobs:
+  run-job-with-input:
+    uses: kubernetes/test-infra/.github/workflows/deploy-inner-test.yaml@master
+    with:
+      input-string: ${{inputs.input-string}}
+    permissions:
+      contents: read
