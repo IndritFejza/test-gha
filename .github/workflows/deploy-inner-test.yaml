@@ -18,7 +18,7 @@ jobs:
       INPUT_STRING: ${{ inputs.input-string }} 
     steps:
       - name: Tag Testrunner Image
-        if: ! (inputs.input-string == '')
+        if: inputs.input-string == 0
         shell: bash
         run: |
           if [ -z "$INPUT_STRING" ]; then
