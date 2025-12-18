@@ -16,7 +16,7 @@ jobs:
       contents: read
     steps:
       - name: Tag Testrunner Image
-        if: ${{ inputs.input-string == ""}}
+        if: ${{ inputs.input-string == "default-value" || inputs.input-string != ""}}
         shell: bash
         run: |
           echo "Running test with input: ${{ inputs.input-string }}"
