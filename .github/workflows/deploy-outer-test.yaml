@@ -6,7 +6,7 @@ on:
       input-string:
         type: string
         default: default-value
-        required: true
+        required: false
         description: |
           input-string to test if-condition in step-level
 
