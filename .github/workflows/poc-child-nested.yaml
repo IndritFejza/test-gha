@@ -5,7 +5,7 @@ on:
 
 jobs:
   worker-nested:
-    name: test
+    name: ${{ matrix.args.name }}
     uses: ./.github/workflows/poc-grandchild.yaml
     strategy:
       fail-fast: false
