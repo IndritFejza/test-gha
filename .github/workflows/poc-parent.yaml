@@ -19,7 +19,7 @@ jobs:
     with:
       test-param: ${{ matrix.args.param }}
 
-  # Scenario 2: Nested call (3 levels: parent -> child -> grandchild)
+  # Scenario 2: Nested call (3 levels: parent -> child-nested -> grandchild)
   nested-call:
     uses: ./.github/workflows/poc-child-nested.yaml
     strategy:
