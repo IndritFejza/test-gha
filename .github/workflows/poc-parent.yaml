@@ -1,0 +1,35 @@
+name: POC - Matrix Naming Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  # Scenario 1: Direct call (2 levels: parent -> child)
+  direct-call:
+    name: ${{ matrix.args.name }}
+    uses: ./.github/workflows/poc-child-direct.yaml
+    strategy:
+      fail-fast: false
+      matrix:
+        args:
+          - name: direct-test-alpha
+            param: alpha
+          - name: direct-test-beta
+            param: beta
+    with:
+      test-param: ${{ matrix.args.param }}
+
+  # Scenario 2: Nested call (3 levels: parent -> child -> grandchild)
+  nested-call:
+    name: ${{ matrix.args.name }}
+    uses: ./.github/workflows/poc-child-nested.yaml
+    strategy:
+      fail-fast: false
+      matrix:
+        args:
+          - name: nested-test-alpha
+            param: alpha
+          - name: nested-test-beta
+            param: beta
+    with:
+      test-param: ${{ matrix.args.param }}
