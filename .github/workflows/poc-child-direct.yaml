@@ -1,0 +1,20 @@
+name: POC - Child Direct (2-level test)
+
+on:
+  workflow_call:
+    inputs:
+      test-param:
+        required: true
+        type: string
+        description: Test parameter passed from parent
+
+jobs:
+  # This is a direct child - only 2 levels deep
+  worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo test param
+        run: |
+          echo "Scenario: Direct call (2 levels)"
+          echo "Received param: ${{ inputs.test-param }}"
+          echo "This job should show the matrix name from parent"
