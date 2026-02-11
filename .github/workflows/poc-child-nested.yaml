@@ -19,7 +19,7 @@ jobs:
       test-param: ${{ matrix.args.param }}
 
   # This is a regular job in the middle layer
-  worker:
+  worker-middle:
     runs-on: ubuntu-latest
     steps:
       - name: Echo test param
