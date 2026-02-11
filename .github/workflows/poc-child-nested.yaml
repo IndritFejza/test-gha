@@ -13,9 +13,9 @@ jobs:
       fail-fast: false
       matrix:
         args:
-          - name: direct-test-alpha
+          - name: nested-test-alpha
             param: alpha
-          - name: direct-test-beta
+          - name: nested-test-beta
             param: beta
     with:
       test-param: ${{ matrix.args.param }}
@@ -27,5 +27,4 @@ jobs:
       - name: Echo test param
         run: |
           echo "Scenario: Nested call (3 levels - middle layer)"
-          echo "Received param: ${{ inputs.test-param }}"
           echo "This is the middle layer worker job"
