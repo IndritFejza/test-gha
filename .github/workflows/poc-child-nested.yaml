@@ -4,8 +4,6 @@ on:
   workflow_call:
 
 jobs:
-  # This job calls ANOTHER reusable workflow, creating 3 levels
-  # This mimics the testrunner.yaml structure where 'prepare' calls another workflow
   worker-nested:
     name: ${{ matrix.args.name }}
     uses: ./.github/workflows/poc-grandchild.yaml
