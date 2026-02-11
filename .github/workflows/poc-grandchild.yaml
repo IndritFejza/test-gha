@@ -1,0 +1,23 @@
+name: POC - Grandchild (3-level test - deepest layer)
+
+on:
+  workflow_call:
+    inputs:
+      test-param:
+        required: true
+        type: string
+        description: Test parameter passed through the chain
+
+jobs:
+  # This is the deepest level (3rd level) - grandchild workflow
+  deep-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo test param
+        run: |
+          echo "Scenario: Nested call (3 levels - deepest layer / grandchild)"
+          echo "Received param: ${{ inputs.test-param }}"
+          echo "This is the grandchild workflow (deepest level)"
+          echo ""
+          echo "If naming breaks at 3 levels, the parent's matrix name"
+          echo "won't be visible in the GitHub Actions UI for this job"
