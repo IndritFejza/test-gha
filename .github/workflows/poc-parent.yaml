@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Scenario 1: Direct call (2 levels: parent -> child)
+  # Direct call (2 levels: parent -> child)
   direct-call:
     name: ${{ matrix.args.name }}
     uses: ./.github/workflows/poc-child-direct.yaml
@@ -19,7 +19,7 @@ jobs:
     with:
       test-param: ${{ matrix.args.param }}
 
-  # Scenario 2: Nested call (3 levels: parent -> child-nested -> grandchild)
+  # Nested call (3 levels: parent -> child-nested -> grandchild)
   nested-call:
     uses: ./.github/workflows/poc-child-nested.yaml
     strategy:
