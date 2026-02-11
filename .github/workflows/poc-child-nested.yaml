@@ -2,11 +2,6 @@ name: POC - Child Nested (3-level test - middle layer)
 
 on:
   workflow_call:
-    inputs:
-      test-param:
-        required: true
-        type: string
-        description: Test parameter passed from parent
 
 jobs:
   # This job calls ANOTHER reusable workflow, creating 3 levels
