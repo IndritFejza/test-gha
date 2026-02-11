@@ -10,7 +10,7 @@ on:
 
 jobs:
   # This is a direct child - only 2 levels deep
-  worker:
+  worker-direct:
     runs-on: ubuntu-latest
     steps:
       - name: Echo test param
