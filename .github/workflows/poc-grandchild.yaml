@@ -18,6 +18,3 @@ jobs:
           echo "Scenario: Nested call (3 levels - deepest layer / grandchild)"
           echo "Received param: ${{ inputs.test-param }}"
           echo "This is the grandchild workflow (deepest level)"
-          echo ""
-          echo "If naming breaks at 3 levels, the parent's matrix name"
-          echo "won't be visible in the GitHub Actions UI for this job"
