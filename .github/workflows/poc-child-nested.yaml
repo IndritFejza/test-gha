@@ -1,0 +1,36 @@
+name: POC - Child Nested (3-level test - middle layer)
+
+on:
+  workflow_call:
+    inputs:
+      test-param:
+        required: true
+        type: string
+        description: Test parameter passed from parent
+
+jobs:
+  # This job calls ANOTHER reusable workflow, creating 3 levels
+  # This mimics the testrunner.yaml structure where 'prepare' calls another workflow
+  worker-nested:
+    name: ${{ matrix.args.name }}
+    uses: ./.github/workflows/poc-grandchild.yaml
+    strategy:
+      fail-fast: false
+      matrix:
+        args:
+          - name: direct-test-alpha
+            param: alpha
+          - name: direct-test-beta
+            param: beta
+    with:
+      test-param: ${{ matrix.args.param }}
+
+  # This is a regular job in the middle layer
+  worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo test param
+        run: |
+          echo "Scenario: Nested call (3 levels - middle layer)"
+          echo "Received param: ${{ inputs.test-param }}"
+          echo "This is the middle layer worker job"
