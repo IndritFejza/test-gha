@@ -1,4 +1,4 @@
-name: POC - Child Direct (2-level test)
+name: 🧩 POC - Child Direct (2-level test)
 
 on:
   workflow_call:
