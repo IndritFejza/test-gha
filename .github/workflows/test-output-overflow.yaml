@@ -1,4 +1,4 @@
-name: Test Output Overflow
+name: Test Output Overflow 1 Layer
 on:
   workflow_dispatch:
 
@@ -10,9 +10,11 @@ jobs:
     steps:
       - id: gen
         run: |
-          # generate ~1.1MB of output to exceed the 1MB limit
-          python3 -c "print('x' * 1100000)" >> "$GITHUB_OUTPUT"
-          echo "huge=$(python3 -c "print('x' * 1100000)")" >> "$GITHUB_OUTPUT"
+          {
+            echo "huge<<EOF"
+            python3 -c "print('x' * 1100000)"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
   downstream:
     needs: big-output
