@@ -1,13 +1,13 @@
-# .github/workflows/test-overflow-inner.yaml
 name: Test Inner
 on:
   workflow_call:
-outputs:
-  huge:
-    value: ${{ jobs.generate.outputs.huge }}
+    outputs:
+      huge:
+        value: ${{ jobs.generate.outputs.huge }}
+
 jobs:
   generate:
-    runs-on: ubuntu-latest
+    runs-on: solinas
     outputs:
       huge: ${{ steps.gen.outputs.huge }}
     steps:
