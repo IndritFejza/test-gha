@@ -1,0 +1,8 @@
+name: Test Middle
+on:
+  workflow_call:
+
+jobs:
+  inner:
+    uses: ./.github/workflows/test-overflow-inner.yaml
+
