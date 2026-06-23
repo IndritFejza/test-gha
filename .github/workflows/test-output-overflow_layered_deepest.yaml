@@ -6,6 +6,6 @@ jobs:
     uses: ./.github/workflows/test-overflow-middle.yaml
   downstream:
     needs: big-output
-    runs-on: solinas
+    runs-on: ubuntu-latest
     steps:
       - run: echo "I ran"
