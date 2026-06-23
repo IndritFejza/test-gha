@@ -4,5 +4,5 @@ on:
 
 jobs:
   inner:
-    uses: ./.github/workflows/test-overflow-inner.yaml
+    uses: IndritFejza/test-gha/.github/workflows/test-overflow-inner.yaml@main
 
